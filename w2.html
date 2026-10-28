@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+
+  <!-- فونت مدرن برای بخش انگلیسی -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+  
+    :root {
+      --bg-primary: #290303;      /* کرم لاته ملایم و گرم */
+      --bg-surface: #ffffffeb;      /* سفید خالص کارت‌ها */
+      --bg-soft:    #E9E3D5;      /* کرم تیره‌تر برای بخش‌های داخلی */
+      --text-main:  #41302a;      /* قهوه‌ای بسیار تیره و اصیل */
+      --text-muted: #7A6E65;      /* قهوه‌ای خاکستری برای متن‌های فرعی */
+      --accent:     #8C5830;      /* قهوه‌ای دارچینی گرم (رنگ اصلی برند) */
+      --accent-2:   #C49A6C;      /* کرم طلایی ملایم */
+      --accent-light:#F9F4EE;     /* پس‌زمینه خیلی روشن برای تگ‌ها */
+      --border:     #DCD4C5;      /* خطوط و کادرها */
+      --shadow:     0 20px 50px rgba(44, 34, 30, 0.08);
+      --radius-sm:  10px;
+      --radius-md:  18px;
+      --radius-lg:  26px;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .en {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      direction: ltr;
+      text-align: left;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .navbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand__logo {
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      display: grid; place-items: center;
+      background: var(--text-main); color: #fff;
+      font-weight: 800; font-size: 1.2rem; letter-spacing: 1px;
+    }
+    .brand__info strong { display: block; font-size: 1.1rem; letter-spacing: 1px; }
+    .brand__info small { display: block; color: var(--text-muted); font-size: .85rem; }
+
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--text-muted); font-weight: 600; font-size: .95rem; transition: .2s; }
+    .nav-links a:hover { color: var(--text-main); }
+
+    /* Buttons */
+    .btn {
+      display: inline-block; font-weight: 700; font-size: .92rem;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      transition: all .25s ease; cursor: pointer; text-align: center;
+    }
+    .btn--primary { background: var(--accent); color: #fff; box-shadow: 0 8px 20px rgba(140, 88, 48, 0.25); }
+    .btn--primary:hover { background: #734725; transform: translateY(-2px); }
+    .btn--secondary { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+    .btn--secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .btn--outline { border: 1px solid var(--accent); color: var(--accent); }
+    .btn--full { width: 100%; }
+
+    /* Main Container */
+    .grid-container {
+      max-width: 1180px;
+      margin: 36px auto 70px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+    }
+
+    
+    .hero-card {
+      grid-column: span 12;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 56px 50px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    
+    .hero-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .pill-tag {
+      background: var(--accent-light);
+      color: var(--accent); font-size: .82rem; font-weight: 700;
+      padding: 6px 14px; border-radius: 999px;
+      border: 1px solid rgba(140, 88, 48, 0.15);
+    }
+    .rating-stars {
+      color: #D9822B;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 3rem; margin-bottom: 18px; line-height: 1.25; font-weight: 800; }
+    .highlight { color: var(--accent); position: relative; }
+    .hero-desc { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 14px; align-items: center; margin-bottom: 36px; }
+
+    /* Mini Stats inside Hero */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-item strong { display: block; font-size: 1.2rem; color: var(--accent); font-weight: 800; }
+    .stat-item span { font-size: 0.82rem; color: var(--text-muted); }
+
+    
+    .hero-card__art {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .hero-media-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .hero-media-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+    .hero-media-box.main-img { height: 320px; }
+    .hero-media-box.sub-img { height: 220px; transform: translateY(20px); }
+
+    .hero-card__art:hover .hero-media-box img {
+      transform: scale(1.08);
+    }
+
+    
+    .floating-badge {
+      position: absolute;
+      bottom: -15px;
+      left: 20px;
+      background: var(--bg-surface);
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+    }
+    .floating-badge .dot {
+      width: 10px; height: 10px; background: #2E7D32; border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+    }
+    .floating-badge span { font-size: 0.85rem; font-weight: 700; }
+
+    
+    .features-grid {
+      grid-column: span 12;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .feature-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 34px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+    }
+    .feature-item .num { color: var(--accent); font-weight: 900; display: block; margin-bottom: 12px; font-size: 1.1rem; }
+    .feature-item h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .feature-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+    
+    .menu-section {
+      grid-column: span 12;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      box-shadow: var(--shadow);
+    }
+    .section-title {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 35px; border-bottom: 1px solid var(--border); padding-bottom: 18px;
+    }
+    .section-title h2 { font-size: 2rem; }
+    .section-title p { color: var(--text-muted); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    
+    .menu-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+    .menu-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-box__media {
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-box__media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+    .menu-box:hover .menu-box__media img {
+      transform: scale(1.1);
+    }
+
+    .menu-box__content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .menu-box__header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+    }
+    .menu-box__header h4 { font-weight: 700; font-size: 1.1rem; }
+    .price { color: var(--accent); font-weight: 800; font-size: .95rem; }
+    .menu-box p { color: var(--text-muted); font-size: .88rem; line-height: 1.5; }
+
+    
+    .contact-section {
+      grid-column: span 12;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      box-shadow: var(--shadow);
+    }
+    .contact-info h2 { margin-bottom: 15px; font-size: 1.8rem; }
+    .info-list { list-style: none; margin-top: 24px; }
+    .info-list li { margin-bottom: 14px; color: var(--text-muted); }
+    .info-list span { color: var(--text-main); font-weight: 700; margin-left: 8px; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: .88rem; font-weight: 700; }
+    input, select, textarea {
+      padding: 13px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+      background: var(--bg-primary); outline: none; font-family: inherit; color: inherit;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+
+    .footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: .9rem; }
+
+    @media (max-width: 950px) {
+      .hero-card, .contact-section { grid-template-columns: 1fr; }
+      .features-grid, .menu-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-card__art { display: none; } 
+      h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="brand">
+      <span class="brand__logo">L</span>
+      <div class="brand__info">
+        <strong>LOYAL</strong>
+        <small>قهوه تخصصی • فضای مینیمال</small>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#menu">منو</a>
+      <a href="#about">داستان ما</a>
+      <a href="#contact" class="btn btn--outline">رزرو میز</a>
+    </nav>
+  </header>
+
+  <main class="grid-container">
+
+    
+    <section class="hero-card">
+      <div>
+        <div class="hero-badge-group">
+          <span class="pill-tag">برشته‌کاری روزانه تخصصی</span>
+          <span class="rating-stars">★★★★★ ۴.۹ (محبوب‌ترین‌ها)</span>
+        </div>
+        <h1>طعم اصیل <span class="highlight">قهوه</span> در فضایی آرام.</h1>
+        <p class="hero-desc">
+          در LOYAL، هر فنجان قهوه حاصل انتخاب دقیق بهترین دانه‌های عربیکا، دم‌آوری حرفه‌ای و اشتیاق ما به خلق لحظاتی ناب برای شماست.
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn--primary">مشاهده منوی تخصصی</a>
+          <a href="#contact" class="btn btn--secondary">رزرو آنلاین میز</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong>۱۰۰٪</strong>
+            <span>عربیکای اصیل</span>
+          </div>
+          <div class="stat-item">
+            <strong>+۲۰</strong>
+            <span>نوع دم‌آوری</span>
+          </div>
+          <div class="stat-item">
+            <strong>۱۰ سال</strong>
+            <span>تجربه تخصصی</span>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="hero-card__art">
+        <div class="hero-media-box main-img">
+          <img src="image/tehran-boarding-cafe-2-1-e1657978222918.jpg" alt="Specialty Coffee">
+        </div>
+        <div class="hero-media-box sub-img">
+          <img src="image/Coffee-Poster--Discount-Templates_19749-724x1024.jpg" alt="Cafe Atmosphere">
+        </div>
+        
+        <div class="floating-badge en">
+          <span class="dot"></span>
+          <span>Open Now • Specialty Roasters</span>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="features-grid" id="about">
+      <div class="feature-item">
+        <span class="num">۰۱</span>
+        <h3>دانه‌های دست‌چین</h3>
+        <p>گلچینی از بهترین مزارع قهوه دنیا با استانداردهای سخت‌گیرانه اسپشالتی.</p>
+      </div>
+      <div class="feature-item">
+        <span class="num">۰۲</span>
+        <h3>پخت روزانه</h3>
+        <p>انواع کرواسان و شیرینی‌های فرانسوی هر روز صبح تازه آماده می‌شوند.</p>
+      </div>
+      <div class="feature-item">
+        <span class="num">۰۳</span>
+        <h3>فضای کار اشتراکی</h3>
+        <p>محیطی ایده‌آل با اینترنت پرسرعت برای تمرکز، کار و جلسات دونفره.</p>
+      </div>
+    </section>
+
+    
+    <section class="menu-section" id="menu">
+      <div class="section-title">
+        <div>
+          <h2>Our Menu</h2>
+          <p>Handcrafted with passion & precision</p>
+        </div>
+        <span class="tag-label en">SPECIALTY SELECTION</span>
+      </div>
+
+      <div class="menu-grid">
+
+        
+        <article class="menu-box en">
+          <div class="menu-box__media">
+            <img src="image/ترکیبات-موکا.jpg" alt="Flat White">
+          </div>
+          <div class="menu-box__content">
+            <div class="menu-box__header">
+              <h4>Flat White</h4>
+              <span class="price">140,000 T</span>
+            </div>
+            <p>Double ristretto with silky microfoam milk.</p>
+          </div>
+        </article>
+
+        
+        <article class="menu-box en">
+          <div class="menu-box__media">
+            <img src="image/iced-latte.jpg" alt="Cold Brew">
+          </div>
+          <div class="menu-box__content">
+            <div class="menu-box__header">
+              <h4>LOYAL Cold Brew</h4>
+              <span class="price">165,000 T</span>
+            </div>
+            <p>18-hour slow steep with dark chocolate notes.</p>
+          </div>
+        </article>
+
+        
+        <article class="menu-box en">
+          <div class="menu-box__media">
+            <img src="image/images.jpeg" alt="Croissant">
+          </div>
+          <div class="menu-box__content">
+            <div class="menu-box__header">
+              <h4>Hazelnut Croissant</h4>
+              <span class="price">180,000 T</span>
+            </div>
+            <p>Flaky butter pastry filled with rich hazelnut cream.</p>
+          </div>
+        </article>
+
+        
+        <article class="menu-box en">
+          <div class="menu-box__media">
+            <img src="image/images (1).jpeg" alt="Matcha">
+          </div>
+          <div class="menu-box__content">
+            <div class="menu-box__header">
+              <h4>Matcha Latte</h4>
+              <span class="price">175,000 T</span>
+            </div>
+            <p>Ceremonial grade Japanese matcha with oat milk.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    
+    <section class="contact-section" id="contact">
+      <div class="contact-info">
+        <h2>تماس و رزرو میز</h2>
+        <p>مشتاق دیدار شما هستیم. برای رزرو میز در ساعات اوج شلوغی، فرم مقابل را تکمیل کنید.</p>
+        <ul class="info-list">
+          <li><span>آدرس:</span> تهران، خیابان ولیعصر، نبش کوچه نگار، پلاک ۱۴</li>
+          <li><span>ساعات کاری:</span> همه‌روزه از ساعت ۸:۰۰ تا ۲۳:۰۰</li>
+          <li><span>تلفن تماس:</span> ۰۲۱-۸۸۸۸۴۴۵۵</li>
+        </ul>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="field">
+            <label>نام و نام خانوادگی</label>
+            <input type="text" placeholder="مثلاً: سارا احمدی" />
+          </div>
+          <div class="field">
+            <label>شماره تماس</label>
+            <input type="tel" placeholder="۰۹۱۲..." />
+          </div>
+        </div>
+        <div class="field">
+          <label>نوع درخواست</label>
+          <select>
+            <option>رزرو میز دونفره</option>
+            <option>رزرو میز گروهی / کاری</option>
+            <option>سفارش تولد یا مراسم</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>توضیحات تکمیلی</label>
+          <textarea rows="3" placeholder="ساعت حضور یا درخواست ویژه..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">ثبت درخواست رزرو</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© ۲۰۲۶ کافه loyal — تمام حقوق محفوظ است.</p>
+  </footer>
+
+</body>
+</html>
+
