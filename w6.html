@@ -1,0 +1,1408 @@
+
+    <!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="بوتیک مانلی؛ پوشاک زنانه و مردانه، کیف و اکسسوری">
+    <title>بوتیک مانلی | استایل، امضای توست</title>
+</head>
+<body>
+    
+
+  <style>
+    /* فونت فارسی؛ برای بارگذاری به اینترنت نیاز دارد. */
+    @import url('https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      --navy: #102d35;
+      --navy-light: #1c4149;
+      --mint: #c9efd8;
+      --mint-soft: #e6f5ec;
+      --coral: #ed8d72;
+      --coral-dark: #d16e55;
+      --paper: #f7f8f4;
+      --white: #ffffff;
+      --text: #183038;
+      --muted: #66787a;
+      --border: #dbe5df;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 115px;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--paper);
+      color: var(--text);
+      font-family: "Estedad", Tahoma, sans-serif;
+      line-height: 1.8;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--mint);
+      color: var(--navy);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* ساختار کلی سایت با Grid */
+    .site {
+      display: grid;
+      grid-template-areas:
+        "topbar"
+        "header"
+        "main"
+        "footer";
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    /* نوار بالای صفحه */
+    .topbar {
+      grid-area: topbar;
+      padding: 7px 16px;
+      background: var(--navy);
+      color: var(--mint);
+      text-align: center;
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+
+    /* هدر و نوار منو */
+    .site-header {
+      grid-area: header;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 248, 244, 0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 24px;
+      min-height: 78px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 7px;
+      white-space: nowrap;
+      color: var(--navy);
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .logo span {
+      color: var(--coral-dark);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(10px, 1.5vw, 23px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-list a {
+      position: relative;
+      display: inline-block;
+      padding: 10px 0;
+      white-space: nowrap;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transition: color 0.25s;
+    }
+
+    .nav-list a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      width: 0;
+      height: 2px;
+      background: var(--coral);
+      transition: width 0.25s;
+    }
+
+    .nav-list a:hover {
+      color: var(--coral-dark);
+    }
+
+    .nav-list a:hover::after {
+      width: 100%;
+    }
+
+    .header-contact {
+      padding: 9px 15px;
+      border: 1px solid var(--navy);
+      white-space: nowrap;
+      font-size: 0.78rem;
+      font-weight: 800;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .header-contact:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    main {
+      grid-area: main;
+      min-width: 0;
+    }
+
+    /* بخش اول: تصویر تمام‌عرض، مناسب عکس خود بوتیک */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      align-items: center;
+      width: 100%;
+      min-height: clamp(590px, calc(100svh - 110px), 820px);
+      overflow: hidden;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(270deg, rgba(9, 34, 41, 0.88), rgba(9, 34, 41, 0.46) 52%, rgba(9, 34, 41, 0.12)),
+        linear-gradient(0deg, rgba(9, 34, 41, 0.48), transparent 40%);
+    }
+
+    .hero-content {
+      padding-block: 95px 125px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid rgba(201, 239, 216, 0.7);
+      color: var(--mint);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin: 23px 0 18px;
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: -0.06em;
+    }
+
+    .hero h1 span {
+      color: var(--mint);
+    }
+
+    .hero-description {
+      max-width: 510px;
+      margin: 0 0 30px;
+      color: #ecf2ee;
+      font-size: 0.98rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      min-height: 48px;
+      padding: 11px 20px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      transition: transform 0.3s, background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-mint {
+      background: var(--mint);
+      color: var(--navy);
+    }
+
+    .button-mint:hover {
+      background: var(--white);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .hero-caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .hero-caption .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-block: 13px;
+      color: #e3eeea;
+      font-size: 0.72rem;
+    }
+
+    /* میانبر تصویری برای زنانه و مردانه */
+    .quick-categories {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding-block: 65px 10px;
+    }
+
+    .category-tile {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: end;
+      min-height: 310px;
+      padding: 26px;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--navy-light);
+    }
+
+    .category-tile img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .category-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(0deg, rgba(9, 34, 41, 0.85), transparent 75%);
+    }
+
+    .category-tile:hover img {
+      transform: scale(1.07);
+    }
+
+    .category-tile small {
+      display: block;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+    }
+
+    .category-tile h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    .category-tile strong {
+      font-size: 0.83rem;
+    }
+
+    /* سکشن‌های مستقل محصولات */
+    .collection {
+      padding-block: 76px;
+      scroll-margin-top: 115px;
+    }
+
+    .collection:nth-of-type(even) {
+      background: var(--white);
+    }
+
+    .collection.mint-section {
+      background: var(--mint-soft);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .section-kicker {
+      color: var(--coral-dark);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+    }
+
+    .section-heading h2 {
+      margin: 5px 0 4px;
+      color: var(--navy);
+      font-size: clamp(1.8rem, 3.3vw, 2.8rem);
+      line-height: 1.4;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .section-number {
+      color: #aec9bf;
+      font-size: clamp(2.8rem, 6vw, 5.3rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /*
+      هر سکشن: یک پنل معرفی + دو کارت محصول.
+      هم خود بخش مستقل است و هم چیدمانش Grid است.
+    */
+    .collection-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 450px;
+      padding: 30px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .feature-panel.coral {
+      background: #ab6657;
+    }
+
+    .feature-panel.green {
+      background: #315d53;
+    }
+
+    .feature-panel span {
+      color: var(--mint);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+    }
+
+    .feature-panel h3 {
+      max-width: 260px;
+      margin: 15px 0;
+      font-size: clamp(1.65rem, 2.4vw, 2.4rem);
+      line-height: 1.5;
+    }
+
+    .feature-panel p {
+      max-width: 280px;
+      margin: 0;
+      color: #e3eeea;
+      font-size: 0.87rem;
+    }
+
+    .feature-panel a {
+      align-self: flex-start;
+      margin-top: 25px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--mint);
+      color: var(--mint);
+      font-size: 0.84rem;
+      font-weight: 800;
+      transition: transform 0.25s;
+    }
+
+    .feature-panel a:hover {
+      transform: translateX(-5px);
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: transform 0.35s, box-shadow 0.35s;
+    }
+
+    .product:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 38px rgba(16, 45, 53, 0.12);
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 4.1;
+      background: #e1eae5;
+    }
+
+    .product-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s;
+    }
+
+    .product:hover .product-image img {
+      transform: scale(1.08);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 5px 10px;
+      background: var(--mint);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .product-badge.sale {
+      background: var(--coral);
+      color: var(--navy);
+    }
+
+    .product-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 16px;
+    }
+
+    .product-type {
+      color: var(--coral-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .product-info h3 {
+      margin: 4px 0 6px;
+      color: var(--navy);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .price {
+      margin-top: auto;
+      font-size: 0.95rem;
+      font-weight: 900;
+    }
+
+    .price del {
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 400;
+    }
+
+    .product-link {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 10px;
+      color: var(--coral-dark);
+      font-size: 0.79rem;
+      font-weight: 800;
+    }
+
+    .product-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    /* درباره ما */
+    .about {
+      padding-block: 95px;
+      background: var(--navy);
+      color: var(--white);
+      scroll-margin-top: 115px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(30px, 6vw, 85px);
+    }
+
+    .about-photo {
+      height: 470px;
+      object-fit: cover;
+    }
+
+    .about .section-kicker {
+      color: var(--mint);
+    }
+
+    .about h2 {
+      max-width: 480px;
+      margin: 12px 0 15px;
+      font-size: clamp(1.9rem, 3.5vw, 3.1rem);
+      line-height: 1.5;
+    }
+
+    .about p {
+      color: #d5e5df;
+      font-size: 0.91rem;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .about-point {
+      padding: 14px;
+      border: 1px solid #52716f;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* ==========================
+       فوتر کامل سایت
+       ========================== */
+    .site-footer {
+      grid-area: footer;
+      background: #0a2027;
+      color: var(--white);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 35px;
+      padding-block: 65px 52px;
+    }
+
+    .footer-logo {
+      margin-bottom: 12px;
+      font-size: 1.75rem;
+      font-weight: 900;
+    }
+
+    .footer-logo span {
+      color: var(--coral);
+      font-size: 0.72rem;
+    }
+
+    .site-footer h3 {
+      margin: 5px 0 17px;
+      font-size: 0.98rem;
+    }
+
+    .site-footer p,
+    .site-footer li,
+    .site-footer address {
+      color: #bed0cc;
+      font-size: 0.82rem;
+      font-style: normal;
+      line-height: 2;
+    }
+
+    .site-footer ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .site-footer li a {
+      transition: color 0.25s;
+    }
+
+    .site-footer li a:hover {
+      color: var(--mint);
+    }
+
+    .footer-contact-box {
+      padding: 14px;
+      border: 1px solid #48656a;
+      color: #dbe9e4;
+      font-size: 0.79rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #355056;
+    }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      padding-block: 17px;
+      color: #b4c8c3;
+      font-size: 0.73rem;
+    }
+
+    /* تبلت */
+    @media (max-width: 1140px) {
+      .header-inner {
+        grid-template-columns: 1fr auto;
+        gap: 0 15px;
+        padding-top: 11px;
+      }
+
+      .nav-list {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: flex-start;
+        gap: 23px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        padding-block: 6px;
+      }
+
+      .header-contact {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      html {
+        scroll-padding-top: 130px;
+      }
+
+      .collection,
+      .about {
+        scroll-margin-top: 130px;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-panel {
+        grid-column: 1 / -1;
+        min-height: 230px;
+      }
+
+      .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* موبایل */
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 28px, 1200px);
+      }
+
+      .logo {
+        font-size: 1.3rem;
+      }
+
+      .header-contact {
+        padding: 7px 9px;
+        font-size: 0.7rem;
+      }
+
+      .nav-list a {
+        font-size: 0.75rem;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero::before {
+        background: linear-gradient(270deg, rgba(9, 34, 41, 0.9), rgba(9, 34, 41, 0.55));
+      }
+
+      .hero h1 {
+        font-size: clamp(2.1rem, 8vw, 3rem);
+      }
+
+      .hero-caption span:last-child {
+        display: none;
+      }
+
+      .quick-categories {
+        grid-template-columns: 1fr;
+        padding-top: 42px;
+      }
+
+      .category-tile {
+        min-height: 230px;
+      }
+
+      .collection {
+        padding-block: 57px;
+      }
+
+      .section-number {
+        display: none;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-panel {
+        grid-column: auto;
+        min-height: 220px;
+      }
+
+      .product-image {
+        aspect-ratio: 4 / 3.2;
+      }
+
+      .about {
+        padding-block: 65px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-photo {
+        height: 300px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 23px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+
+    <div class="topbar">
+      مانلی بوتیک | مجموعه‌های زنانه، مردانه، کیف و اکسسوری
+    </div>
+
+    <!-- هدر و لینک‌های منو؛ هر لینک به بخش مستقل خودش می‌رود. -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#home" aria-label="مانلی، صفحه اصلی">
+          مانلی <span>BOUTIQUE</span>
+        </a>
+
+        <nav aria-label="منوی اصلی">
+          <ul class="nav-list">
+            <li><a href="#home">خانه</a></li>
+            <li><a href="#autumn">کالکشن پاییزه</a></li>
+            <li><a href="#women">لباس زنانه</a></li>
+            <li><a href="#men">لباس مردانه</a></li>
+            <li><a href="#accessories">اکسسوری</a></li>
+            <li><a href="#bags">کیف</a></li>
+            <li><a href="#sale">تخفیف‌های ویژه</a></li>
+            <li><a href="#about">درباره ما</a></li>
+          </ul>
+        </nav>
+
+        <a class="header-contact" href="#contact">ارتباط با ما</a>
+      </div>
+    </header>
+
+    <main>
+
+      <!--
+        بخش اول سایت.
+        برای قرار دادن عکس مغازه خودت، فقط src تصویر زیر را تغییر بده.
+        نمونه: src="images/my-shop.jpg"
+      -->
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="image/DW9_o5ehVDlRgmAp9d12ic9EnZ8--MYOTIJAT-OCIij_u_yBtg.png"
+          alt="فضای بوتیک و رگال لباس"
+        >
+
+        <div class="container hero-content">
+          <span class="hero-label">NEW LOOK / MANELI BOUTIQUE</span>
+
+          <h1 id="hero-title">
+            استایل، <span>امضای توست.</span>
+          </h1>
+
+          <p class="hero-description">
+            لباس‌هایی برای روزهای معمولی که قرار نیست معمولی به نظر برسند.
+            از میان مجموعه‌های مانلی، انتخاب خودت را پیدا کن.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-mint" href="#autumn">
+              کشف مجموعه‌ها <span aria-hidden="true">←</span>
+            </a>
+
+            <a class="button button-outline" href="#women">
+              شروع از لباس زنانه <span aria-hidden="true">←</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-caption">
+          <div class="container">
+            <span>برای دیدن مجموعه‌ها به پایین برو ↓</span>
+            <span>WOMEN · MEN · BAGS · ACCESSORIES</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- میانبر تصویری برای دو کالکشن اصلی -->
+      <div class="container quick-categories">
+        <a class="category-tile" href="#women">
+          <img
+            src="image/c734553e-c8bb-4365-b828-937295ae1422.webp"
+            alt="کالکشن زنانه"
+            loading="lazy"
+          >
+          <div>
+            <small>WOMEN'S COLLECTION</small>
+            <h2>دنیای زنانه</h2>
+            <strong>دیدن لباس‌ها ←</strong>
+          </div>
+        </a>
+
+        <a class="category-tile" href="#men">
+          <img
+            src="image/1e217002-a085-48eb-abd3-ebeeb121e53d.webp"
+            alt="کالکشن مردانه"
+            loading="lazy"
+          >
+          <div>
+            <small>MEN'S COLLECTION</small>
+            <h2>دنیای مردانه</h2>
+            <strong>دیدن لباس‌ها ←</strong>
+          </div>
+        </a>
+      </div>
+
+      <!-- سکشن ۱: کالکشن پاییزه -->
+      <section class="collection" id="autumn">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">01 / AUTUMN EDIT</span>
+              <h2>کالکشن پاییزه</h2>
+              <p>انتخاب‌هایی برای روزهای خنک و لایه‌های جذاب پاییزی.</p>
+            </div>
+            <span class="section-number" aria-hidden="true">01</span>
+          </div>
+
+          <div class="collection-grid">
+            <div class="feature-panel">
+              <span>THE AUTUMN EDIT</span>
+              <div>
+                <h3>فصل تازه، ترکیب تازه.</h3>
+                <p>از استایل‌های گرم و راحت برای ساختن ظاهر پاییزی خودت الهام بگیر.</p>
+              </div>
+              <a href="#contact">درباره موجودی بپرس ←</a>
+            </div>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/180567d0-1b81-4b20-beac-e4a8dbaeebe2.webp"
+                  alt="استایل زنانه پاییزه"
+                  loading="lazy"
+                >
+                <span class="product-badge">پاییزه</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">استایل پاییزه</span>
+                <h3>ست روزمره فصل</h3>
+                <div class="price">۲٬۴۹۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/0674ef62-bedc-451a-99a6-8a60d403ef41.webp"
+                  alt="پوشاک پاییزه"
+                  loading="lazy"
+                >
+                <span class="product-badge">جدید</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">پوشاک فصل</span>
+                <h3>استایل رسمی</h3>
+                <div class="price">۱٬۹۸۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- سکشن ۲: لباس زنانه -->
+      <section class="collection mint-section" id="women">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">02 / WOMEN'S WEAR</span>
+              <h2>لباس زنانه</h2>
+              <p>لباس‌هایی برای قرارهای روزمره، دورهمی‌ها و لحظه‌های خاص.</p>
+            </div>
+            <span class="section-number" aria-hidden="true">02</span>
+          </div>
+
+          <div class="collection-grid">
+            <div class="feature-panel coral">
+              <span>MADE FOR HER</span>
+              <div>
+                <h3>انتخابی که به خودت شبیه است.</h3>
+                <p>رنگ، فرم و جزئیاتی که استایل زنانه‌ات را شخصی‌تر می‌کنند.</p>
+              </div>
+              <a href="#contact">درباره موجودی بپرس ←</a>
+            </div>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/1c5673a9-cbcd-4c5d-9d13-938a689a0a63.webp"
+                  alt="پیراهن زنانه"
+                  loading="lazy"
+                >
+                <span class="product-badge">زنانه</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">پیراهن زنانه</span>
+                <h3>پیراهن بلند زنانه</h3>
+                <div class="price">۲٬۱۵۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/500cf2be-64f1-4976-bf83-ac1785f01429.webp"
+                  alt="استایل روزمره زنانه"
+                  loading="lazy"
+                >
+                <span class="product-badge">محبوب</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">استایل روزمره</span>
+                <h3>ست کژوال زنانه</h3>
+                <div class="price">۱٬۷۵۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- سکشن ۳: لباس مردانه -->
+      <section class="collection" id="men">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">03 / MEN'S WEAR</span>
+              <h2>لباس مردانه</h2>
+              <p>از ظاهر رسمی و مرتب تا لباس‌های راحت روزمره.</p>
+            </div>
+            <span class="section-number" aria-hidden="true">03</span>
+          </div>
+
+          <div class="collection-grid">
+            <div class="feature-panel green">
+              <span>MADE FOR HIM</span>
+              <div>
+                <h3>ساده بپوش؛ متفاوت دیده شو.</h3>
+                <p>انتخاب‌هایی که می‌توانی به‌راحتی با استایل خودت ترکیب کنی.</p>
+              </div>
+              <a href="#contact">درباره موجودی بپرس ←</a>
+            </div>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/462813f1-2936-4a81-80cd-c275627b9275.webp"
+                  alt="کت مردانه"
+                  loading="lazy"
+                >
+                <span class="product-badge">رسمی</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">کت مردانه</span>
+                <h3>کت کلاسیک مردانه</h3>
+                <div class="price">۳٬۴۰۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/0290f713-b799-4add-916c-66e538e3bc30.webp"
+                  alt="پیراهن مردانه"
+                  loading="lazy"
+                >
+                <span class="product-badge">روزمره</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">پیراهن مردانه</span>
+                <h3>پیراهن روزمره مردانه</h3>
+                <div class="price">۱٬۱۸۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- سکشن ۴: اکسسوری؛ جدا از کیف -->
+      <section class="collection mint-section" id="accessories">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">04 / ACCESSORIES</span>
+              <h2>اکسسوری</h2>
+              <p>جزئیات کوچکی که ظاهر نهایی را کامل می‌کنند.</p>
+            </div>
+            <span class="section-number" aria-hidden="true">04</span>
+          </div>
+
+          <div class="collection-grid">
+            <div class="feature-panel">
+              <span>THE FINAL TOUCH</span>
+              <div>
+                <h3>گاهی همه‌چیز در جزئیات است.</h3>
+                <p>اکسسوری مناسب، حتی یک ترکیب ساده را متفاوت نشان می‌دهد.</p>
+              </div>
+              <a href="#contact">درباره موجودی بپرس ←</a>
+            </div>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/32222ca4-27f1-428c-b59c-3ef45a862aab.webp"
+                  alt="عینک آفتابی"
+                  loading="lazy"
+                >
+                <span class="product-badge">اکسسوری</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">عینک آفتابی</span>
+                <h3>عینک آفتابی کلاسیک</h3>
+                <div class="price">۹۸۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/2be0e4cd-1a34-433d-9873-12a7ec0fc5e3.webp"
+                  alt="ساعت مچی"
+                  loading="lazy"
+                >
+                <span class="product-badge">منتخب</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">ساعت</span>
+                <h3>ساعت مچی مینیمال</h3>
+                <div class="price">۱٬۶۸۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- سکشن ۵: کیف؛ مستقل از اکسسوری -->
+      <section class="collection" id="bags">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">05 / BAGS</span>
+              <h2>کیف‌ها</h2>
+              <p>از کیف‌های روزمره تا انتخاب‌های مناسب قرارهای خاص.</p>
+            </div>
+            <span class="section-number" aria-hidden="true">05</span>
+          </div>
+
+          <div class="collection-grid">
+            <div class="feature-panel coral">
+              <span>CARRY YOUR STYLE</span>
+              <div>
+                <h3>همراه هر روز تو.</h3>
+                <p>کیفی انتخاب کن که هم کاربردی باشد، هم با لباس‌هایت هماهنگ شود.</p>
+              </div>
+              <a href="#contact">درباره موجودی بپرس ←</a>
+            </div>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/b6d45ee5-c7c7-410c-9c38-5ab5124d0d56.webp"
+                  alt="کیف دستی زنانه"
+                  loading="lazy"
+                >
+                <span class="product-badge">کیف</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">کیف دستی</span>
+                <h3>کیف دستی روزمره</h3>
+                <div class="price">۱٬۸۸۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/d2a4a1ab-8127-4ce6-95df-3b69a5ee39d1.webp"
+                  alt="کوله‌پشتی مشکی"
+                  loading="lazy"
+                >
+                <span class="product-badge">روزمره</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">کوله‌پشتی</span>
+                <h3>کوله‌پشتی مشکی</h3>
+                <div class="price">۱٬۳۵۰٬۰۰۰ تومان</div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- سکشن ۶: تخفیف‌های ویژه -->
+      <section class="collection mint-section" id="sale">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">06 / SPECIAL OFFERS</span>
+              <h2>تخفیف‌های ویژه</h2>
+              <p>چند انتخاب جذاب با قیمت نمونه تخفیف‌خورده.</p>
+            </div>
+            <span class="section-number" aria-hidden="true">06</span>
+          </div>
+
+          <div class="collection-grid">
+            <div class="feature-panel green">
+              <span>LIMITED PICKS</span>
+              <div>
+                <h3>انتخاب خوب، با قیمت بهتر.</h3>
+                <p>پیشنهادهای این بخش را ببین و درباره موجودی آن‌ها سؤال کن.</p>
+              </div>
+              <a href="#contact">درباره موجودی بپرس ←</a>
+            </div>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/c23ac639-6eca-4e05-8972-f878c98be59d.webp"
+                  alt="پیراهن زنانه تخفیف‌دار"
+                  loading="lazy"
+                >
+                <span class="product-badge sale">۲۰٪ تخفیف</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">لباس زنانه</span>
+                <h3>پیراهن زنانه منتخب</h3>
+                <div class="price">
+                  <del>۲٬۰۰۰٬۰۰۰</del>
+                  ۱٬۶۰۰٬۰۰۰ تومان
+                </div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image">
+                <img
+                  src="image/b0cfdb94-f0a0-49a7-96a8-8bb9dab8e831.webp"
+                  alt="پیراهن مردانه تخفیف‌دار"
+                  loading="lazy"
+                >
+                <span class="product-badge sale">۲۵٪ تخفیف</span>
+              </div>
+              <div class="product-info">
+                <span class="product-type">لباس مردانه</span>
+                <h3>پیراهن مردانه منتخب</h3>
+                <div class="price">
+                  <del>۱٬۲۰۰٬۰۰۰</del>
+                  ۹۰۰٬۰۰۰ تومان
+                </div>
+                <a class="product-link" href="#contact">استعلام این مدل ←</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- سکشن ۷: درباره ما -->
+      <section class="about" id="about">
+        <div class="container about-grid">
+          
+            
+          
+
+          <div>
+            <span class="section-kicker">07 / ABOUT MANELI</span>
+            <h2>جایی برای پیدا کردن استایل خودت.</h2>
+            <p>
+              مانلی فضایی برای دیدن پوشاک زنانه و مردانه، کیف و اکسسوری است.
+              می‌توانی هر مجموعه را جداگانه ببینی و انتخاب‌هایی را پیدا کنی
+              که بیشتر به سلیقه‌ات نزدیک هستند.
+            </p>
+
+            <div class="about-points">
+              <div class="about-point">کالکشن مستقل زنانه</div>
+              <div class="about-point">کالکشن مستقل مردانه</div>
+              <div class="about-point">بخش جداگانه کیف</div>
+              <div class="about-point">بخش ویژه اکسسوری</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    
+    <footer class="site-footer" id="contact">
+      <div class="container footer-main">
+
+        <div>
+          <div class="footer-logo">Manli<span>BOUTIQUE</span></div>
+          <p>
+            استایل دلخواهت را میان مجموعه‌های زنانه، مردانه، کیف
+            و اکسسوری مانلی پیدا کن.
+          </p>
+        </div>
+
+        <div>
+          <h3>دسترسی سریع</h3>
+          <ul>
+            <li><a href="#home">صفحه اصلی</a></li>
+            <li><a href="#autumn">کالکشن پاییزه</a></li>
+            <li><a href="#women">لباس زنانه</a></li>
+            <li><a href="#men">لباس مردانه</a></li>
+            <li><a href="#about">درباره ما</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>مجموعه‌ها</h3>
+          <ul>
+            <li><a href="#accessories">اکسسوری</a></li>
+            <li><a href="#bags">کیف‌ها</a></li>
+            <li><a href="#sale">تخفیف‌های ویژه</a></li>
+            <li><a href="#home">بازگشت به بالای صفحه ↑</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>ارتباط با بوتیک</h3>
+          <div class="footer-contact-box">
+            <div class="text">
+                
+                شماره تماس :09636568452 
+                ایمیل:Manlibeauty@gmail.com
+            </div>
+           </label>
+          </div>
+          <address>
+            برای اطلاع از سایز، موجودی و قیمت نهایی محصولات دایرکت دهید. 
+          </address>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <span>© ۲۰۲۶ بوتیک مانلی — تمام حقوق محفوظ است.</span>
+          
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
+
+</html>
+</body>
+</html>
